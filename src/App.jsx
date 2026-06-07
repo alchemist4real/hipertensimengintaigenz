@@ -524,7 +524,7 @@ function MainApp() {
 
       {/* FLOATING SOURCE BUTTON */}
       <button
-        onClick={() => setShowSources(true)}
+        onClick={() => navigate('/sources')}
         style={{
           position: 'fixed',
           bottom: '24px',
@@ -548,7 +548,7 @@ function MainApp() {
         onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
         onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
       >
-        <i className="ti ti-book"></i> Referensi Literatur
+        <i className="ti ti-book" style={{ pointerEvents: 'none' }}></i> Referensi Literatur
       </button>
 
       {/* PAGE: LANDING */}
@@ -1286,12 +1286,48 @@ function AdminDashboard() {
   );
 }
 
+// --- NEW ROUTE: SOURCES PAGE ---
+function SourcesPage() {
+  const navigate = useNavigate();
+  return (
+    <div className="min-h-screen" style={{ background: 'var(--bg)', padding: '40px 24px' }}>
+      <div style={{ maxWidth: '660px', margin: '0 auto', background: 'var(--surface)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-xl)', overflow: 'hidden' }}>
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: '12px', background: 'var(--red-50)' }}>
+          <button 
+            className="btn btn-ghost" 
+            style={{ padding: '8px 12px', fontSize: '14px', marginRight: 'auto' }} 
+            onClick={() => navigate('/')}
+          >
+            <i className="ti ti-arrow-left"></i> Kembali
+          </button>
+          <h1 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--red-800)', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <i className="ti ti-book"></i> Daftar Sumber
+          </h1>
+        </div>
+        <div style={{ padding: '24px' }}>
+          <p className="body-sm" style={{marginBottom: '20px'}}>Berikut adalah referensi literatur medis dan pedoman klinis yang mendukung klaim faktual dalam edukasi #HT_GEN_Z.</p>
+          {SOURCES.map((src, i) => (
+            <div key={i} className="source-item" style={{ marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px dashed var(--border)' }}>
+              <div className="source-cluster" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--red-600)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>{src.cluster}</div>
+              <div className="source-claim" style={{ fontSize: '14.5px', fontWeight: '500', color: 'var(--text-primary)', lineHeight: 1.5, marginBottom: '6px' }}>{src.claim}</div>
+              <div className="source-ref" style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, background: 'var(--bg2)', padding: '8px 12px', borderRadius: 'var(--radius-sm)', borderLeft: '2px solid var(--red-300)' }}>
+                <i className="ti ti-quote"></i> {src.ref}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // --- ROUTER ---
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainApp />} />
+        <Route path="/sources" element={<SourcesPage />} />
         <Route path="/dashboard-admin" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
