@@ -508,13 +508,18 @@ function MainApp() {
   return (
     <div className="min-h-screen">
       {/* TOPBAR */}
-      <nav className="topbar" id="topbar">
+      <nav className="topbar" id="topbar" style={{ position: 'sticky', top: 0, zIndex: 9999 }}>
         <span className="topbar-brand">
           Hipertensi Mengintai Gen <em>Z</em>.
         </span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <button className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: '13px' }} onClick={() => setShowSources(true)}>
-            <i className="ti ti-book"></i> Referensi
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', zIndex: 10000 }}>
+          <button 
+            type="button"
+            className="btn btn-ghost" 
+            style={{ padding: '6px 12px', fontSize: '13px', cursor: 'pointer', pointerEvents: 'auto', position: 'relative', zIndex: 10000 }} 
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowSources(true); }}
+          >
+            <i className="ti ti-book" style={{ pointerEvents: 'none' }}></i> Referensi
           </button>
           {name && step !== 'landing' && (
             <div className="topbar-user" id="topbar-user">
