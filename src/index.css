@@ -149,10 +149,13 @@ body {
   padding: 14px 28px;
   transition: all var(--transition);
   position: relative; overflow: hidden;
+  cursor: pointer;
+  pointer-events: auto;
 }
 .btn::after {
   content: ''; position: absolute; inset: 0;
   background: rgba(255,255,255,0); transition: background var(--transition);
+  pointer-events: none;
 }
 .btn:hover::after { background: rgba(255,255,255,.1); }
 .btn-primary {
@@ -175,7 +178,7 @@ body {
 }
 .btn-ghost:hover { background: var(--red-50); border-color: var(--red-400); }
 .btn-full { width: 100%; }
-.btn i { font-size: 16px; }
+.btn i { font-size: 16px; pointer-events: none; }
 
 /* ═══ STEP LIST (Landing) ═══ */
 .steps { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
