@@ -45,9 +45,9 @@ const EDU_MATERIALS = [
       <p class="edu-section-text">Berdasarkan kisah Tuan Muda Raffin, berikut adalah kebiasaan yang memicu lonjakan tekanan darah:</p>
       <ul style="margin:8px 0 0 18px;font-size:14px;color:var(--text-secondary);line-height:2">
         <li><strong>Begadang</strong> — kurang tidur tingkatkan tekanan darah secara bertahap.</li>
-        <li><strong>Stres</strong> — emosi tak terkontrol memicu lonjakan tekanan.</li>
+        <li><strong>Stres</strong> — emosi tak terkontrol memicu lonjakan tekanan darah.</li>
         <li><strong>Kopi berlebihan</strong> — kafein merangsang sistem saraf.</li>
-        <li><strong>Makanan tinggi garam</strong> — sebabkan retensi cairan dan naikkan volume darah.</li>
+        <li><strong>Makanan tinggi garam</strong> — tubuh menahan lebih banyak air dan tekanan darah meningkat.</li>
         <li><strong>Kurang gerak (sedentari)</strong> — aktivitas fisik rendah melemahkan jantung.</li>
       </ul>
     </div>
@@ -89,16 +89,20 @@ const EDU_MATERIALS = [
     sub: "Asupan, pola tidur, dan stres di kalangan muda",
     html: `
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-salt"></i> Asupan Garam & Gorengan</div>
-      <p class="edu-section-text">WHO membatasi konsumsi natrium maksimal <strong>5 gram (&plusmn;1 sendok teh) per hari</strong>. Konsumsi gorengan &ge; 4 kali seminggu meningkatkan risiko <strong>1,21x lipat</strong> akibat asam lemak trans yang merusak elastisitas pembuluh darah.</p>
+      <div class="edu-section-label"><i class="ti ti-salt"></i> Asupan Garam</div>
+      <p class="edu-section-text">WHO membatasi konsumsi natrium maksimal <strong>5 gram (&plusmn;1 sendok teh) per hari</strong>. Terlalu banyak makan makanan asin membuat tubuh menahan lebih banyak air. Akibatnya, jumlah cairan dalam pembuluh darah bertambah sehingga tekanan darah menjadi lebih tinggi.</p>
+    </div>
+    <div class="edu-section animate-slide">
+      <div class="edu-section-label"><i class="ti ti-pizza"></i> Gorengan</div>
+      <p class="edu-section-text">Kandungan lemak trans (lemak jahat) dari gorengan memicu penumpukan plak di pembuluh darah. Akibatnya, pembuluh darah menjadi lebih kaku dan sempit sehingga tekanan darah lebih mudah meningkat.</p>
     </div>
     <div class="edu-section animate-slide">
       <div class="edu-section-label"><i class="ti ti-moon"></i> Begadang</div>
-      <p class="edu-section-text">Kurang tidur mengaktifkan sistem saraf simpatis secara berlebihan dan mengganggu mekanisme <em>dipping</em> (penurunan tekanan darah alami di malam hari).</p>
+      <p class="edu-section-text">Kurang tidur mengaktifkan sistem saraf simpatis secara berlebihan, yang memicu tubuh tetap berada dalam kondisi siaga sehingga tidak dapat beristirahat dengan baik, akibatnya tekanan darah lebih mudah meningkat.</p>
     </div>
     <div class="edu-section animate-slide">
       <div class="edu-section-label"><i class="ti ti-brain"></i> Stres Kronis (FOMO)</div>
-      <p class="edu-section-text">Tekanan akademik dan FOMO mengaktifkan sumbu HPA secara berlebihan, yang melipatgandakan risiko hipertensi hingga <strong>2,40x</strong>.</p>
+      <p class="edu-section-text">Tekanan akademik dan fenomena FOMO (Fear of Missing Out) dapat menyebabkan stres berkepanjangan. Saat stres, tubuh mengaktifkan sistem respons stres (sumbu HPA) yang meningkatkan pelepasan hormon seperti kortisol. Jika berlangsung terus-menerus, hormon tersebut dapat membuat tekanan darah lebih mudah naik dan meningkatkan risiko hipertensi.</p>
     </div>
     `
   },
@@ -115,8 +119,8 @@ const EDU_MATERIALS = [
       <div class="edu-section-label"><i class="ti ti-activity-heartbeat"></i> Kerusakan Organ (Komplikasi)</div>
       <p class="edu-section-text">Tekanan darah tinggi terus-menerus memicu penumpukan plak (aterosklerosis) dan merusak organ vital:</p>
       <ul style="margin:8px 0 0 18px;font-size:14px;color:var(--text-secondary);line-height:2">
-        <li><strong>Jantung:</strong> Serangan jantung, gagal jantung.</li>
-        <li><strong>Otak:</strong> Stroke, demensia vaskular.</li>
+        <li><strong>Jantung:</strong> Kerja jantung meningkat sehingga tekanan darah naik, memicu serangan jantung dan gagal jantung.</li>
+        <li><strong>Otak:</strong> Stroke dan gangguan aliran darah ke otak (demensia vaskular).</li>
         <li><strong>Ginjal:</strong> Gagal ginjal kronis.</li>
         <li><strong>Mata:</strong> Gangguan penglihatan hingga kebutaan.</li>
       </ul>
