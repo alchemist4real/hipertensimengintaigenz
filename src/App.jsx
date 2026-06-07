@@ -9,137 +9,148 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // --- DATA ---
 const PRETEST = [
-  {q:"Apa yang dimaksud dengan kondisi tekanan darah tinggi (hipertensi)?",opts:["Kondisi di mana tekanan darah terus-menerus di atas batas normal","Penyakit kekurangan darah merah","Gula darah yang terlalu tinggi","Kondisi jantung yang berdetak lebih lambat"],ans:0,exp:""},
-  {q:"Kenapa hipertensi sering dijuluki 'pembunuh senyap'?",opts:["Karena penderitanya meninggal saat sedang tidur","Karena gejalanya sangat jarang disadari sampai tubuh sudah terlanjur sakit","Karena penyakit ini tidak bisa dideteksi oleh dokter","Karena menular tanpa suara"],ans:1,exp:""},
-  {q:"Dari pilihan berikut, mana yang BUKAN penyebab darah tinggi dari kebiasaan sehari-hari?",opts:["Sering begadang dan kurang tidur","Terlalu banyak makan makanan asin","Faktor keturunan dari orang tua","Stres berkepanjangan"],ans:2,exp:""},
-  {q:"Bagaimana anjuran yang tepat soal konsumsi garam agar terhindar dari darah tinggi?",opts:["Sama sekali tidak boleh makan garam","Dibatasi secukupnya dan jangan berlebihan tiap hari","Boleh makan sebanyak-banyaknya asal rajin minum air","Garam tidak berbahaya bagi anak muda"],ans:1,exp:""},
-  {q:"Sering jajan gorengan ternyata bisa memicu darah tinggi, apa alasannya?",opts:["Lemak jahat dari minyak gorengan bisa membuat pembuluh darah kaku","Gorengan membuat darah menjadi lebih manis","Gorengan membuat jantung berdetak lebih lambat","Gorengan membuat pembuluh darah semakin elastis"],ans:0,exp:""},
-  {q:"Apakah sering begadang dan kurang tidur bisa memengaruhi tekanan darah?",opts:["Tidak, tidur tidak ada hubungannya dengan tekanan darah","Ya, kurang tidur bisa membuat tekanan darah naik karena tubuh tidak cukup istirahat","Tidak, kurang tidur justru membuat pembuluh darah makin kuat","Hanya berpengaruh pada orang lanjut usia"],ans:1,exp:""},
-  {q:"Kalau kita sedang stres berat karena banyak pikiran, apakah itu bisa memicu hipertensi?",opts:["Bisa, stres membuat jantung dan tubuh bekerja lebih keras","Tidak, stres cuma sekadar masalah pikiran saja","Hipertensi hanya terjadi kalau kita sering marah-marah","Bisa, tapi stres justru menurunkan tekanan darah"],ans:0,exp:""},
-  {q:"Jika dibiarkan terus-menerus tanpa diobati, tekanan darah tinggi paling sering merusak organ apa saja?",opts:["Paru-paru dan usus","Jantung, otak, dan ginjal","Tulang dan persendian","Kulit dan rambut"],ans:1,exp:""},
-  {q:"Apa dampaknya bagi pembuluh darah jika menahan tekanan darah yang terlalu tinggi setiap hari?",opts:["Pembuluh darah akan beradaptasi menjadi lebih kuat","Dinding pembuluh darah perlahan akan rusak dan memicu penyumbatan","Aliran darah justru makin lancar","Tubuh akan membentuk pembuluh darah baru yang kebal"],ans:1,exp:""},
-  {q:"Banyak orang di Indonesia terkena hipertensi tapi tidak menyadarinya. Apa pencegahan paling mudah yang bisa kita lakukan?",opts:["Rajin cek tekanan darah secara berkala walaupun masih muda","Menunggu sampai kepala pusing baru periksa ke dokter","Minum vitamin saraf setiap hari","Tidak perlu cek tekanan darah selama merasa sehat"],ans:0,exp:""}
+  {q:"Dalam video, Tuan Muda Raffin memiliki kebiasaan makan gorengan dalam jumlah banyak. Apa dampak kebiasaan ini terhadap kesehatan?",opts:["Bisa meningkatkan tekanan darah secara perlahan.","Membuat tubuh lebih berenergi sepanjang hari.","Membantu melancarkan sirkulasi darah.","Tidak ada dampaknya sama sekali."],ans:0,exp:""},
+  {q:"Menurut narasi video, apa yang dimaksud dengan 'tekanan darah naik pelan-pelan'?",opts:["Tekanan darah langsung melonjak setelah bangun tidur.","Tekanan darah meningkat bertahap akibat kebiasaan buruk yang terus berulang.","Peningkatan tekanan darah yang hanya terjadi pada lansia.","Penyakit menular yang berkembang di dalam darah."],ans:1,exp:""},
+  {q:"Dari video, manakah yang BUKAN termasuk faktor yang disebutkan bisa memicu tekanan darah naik?",opts:["Begadang dan kurang tidur.","Terlalu banyak makan makanan tinggi garam.","Faktor keturunan (genetik).","Sering merasa stres tidak terkontrol."],ans:2,exp:""},
+  {q:"Gejala apa yang dialami Tuan Muda Raffin sebelum ia kolaps di video?",opts:["Mual dan muntah parah.","Kepala berdenyut hebat (sakit kepala tiba-tiba).","Nyeri pada persendian kaki.","Batuk yang tidak kunjung sembuh."],ans:1,exp:""},
+  {q:"Menurut video, apa risiko yang terjadi jika gejala hipertensi dibiarkan terlalu lama?",opts:["Risiko penyakit jantung atau stroke.","Sakit maag yang kronis.","Gangguan pendengaran parah.","Kebutaan mendadak."],ans:0,exp:""},
+  {q:"Video menyebutkan beberapa cara pencegahan hipertensi. Manakah yang TIDAK disebutkan dalam video?",opts:["Cek tekanan darah secara rutin.","Konsumsi suplemen vitamin setiap hari.","Tidur yang cukup.","Olahraga ringan secara teratur."],ans:1,exp:""},
+  {q:"Apa yang dianjurkan video untuk dilakukan secara rutin sebagai langkah deteksi dini?",opts:["Minum air putih 3 liter sehari.","Cek tekanan darah secara berkala.","Menimbang berat badan setiap minggu.","Makan sayur setiap pagi."],ans:1,exp:""},
+  {q:"Selain begadang dan stres, konsumsi apa yang disebut video bisa memicu tekanan darah naik?",opts:["Makanan tinggi garam dan minuman manis.","Sayuran hijau dan buah segar.","Daging ayam dan ikan laut.","Susu rendah lemak."],ans:0,exp:""},
+  {q:"Menurut video, kurang gerak (sedentari) termasuk faktor risiko hipertensi. Solusi yang disarankan adalah…",opts:["Berolahraga ringan secara teratur.","Duduk santai sambil menonton TV.","Tidur lebih lama di siang hari.","Makan camilan sambil belajar."],ans:0,exp:""},
+  {q:"Pesan utama yang ingin disampaikan video kepada Gen Z adalah…",opts:["Hipertensi hanya berbahaya bagi orang lanjut usia.","Hipertensi bisa mengintai siapa saja, termasuk anak muda — mulai lakukan pencegahan dari sekarang.","Tidak perlu khawatir makan apapun selama masih muda.","Tekanan darah tinggi adalah penyakit keturunan yang tidak bisa dicegah."],ans:1,exp:""}
 ];
 
 const POSTTEST = [
-  {q:"Berapa ambang batas tekanan darah yang dikategorikan sebagai hipertensi?",opts:["≥ 120/80 mmHg","≥ 130/85 mmHg","≥ 140/90 mmHg","≥ 150/100 mmHg"],ans:2,exp:"Hipertensi adalah kondisi ketika tekanan darah kamu terlalu tinggi secara konsisten di angka ≥140/90 mmHg."},
-  {q:"Mengapa hipertensi sering dijuluki 'the silent killer'?",opts:["Membunuh penderitanya dalam hitungan jam","Sebagian besar penderitanya tidak merasakan gejala apapun","Penyakit ini tidak bisa dideteksi alat medis","Gejalanya hanya muncul saat tidur malam"],ans:1,exp:"Julukan 'silent killer' ada karena sebagian besar penderita tidak merasakan gejala apapun sampai komplikasi serius terjadi."},
-  {q:"Manakah dari berikut ini yang BUKAN merupakan faktor risiko hipertensi yang bisa diubah?",opts:["Kurang tidur / Begadang","Konsumsi garam berlebih","Riwayat keluarga","Stres kronis"],ans:2,exp:"Riwayat keluarga dan usia adalah faktor risiko bawaan yang tidak bisa diubah secara biologis, sedangkan gaya tidur dan pola makan bisa diubah."},
-  {q:"Berapa rekomendasi maksimal konsumsi garam per hari menurut WHO?",opts:["5 gram (sekitar 1 sendok teh)","10 gram (sekitar 1 sendok makan)","15 gram","Tidak ada batasan untuk anak muda"],ans:0,exp:"WHO merekomendasikan batas konsumsi garam maksimal 5 gram natrium/garam per hari untuk mengontrol tekanan darah."},
-  {q:"Berapa kali batas amannya konsumsi gorengan dalam seminggu agar tidak meningkatkan risiko hipertensi secara signifikan?",opts:["Kurang dari 2 kali seminggu","Maksimal 4 kali seminggu","6 kali seminggu","Setiap hari asal disertai olahraga"],ans:0,exp:"Mengonsumsi gorengan ≥4 kali per minggu meningkatkan risiko hipertensi secara signifikan akibat tingginya asam lemak trans. Disarankan kurang dari 2 kali seminggu."},
-  {q:"Apa dampak biologis dari kurang tidur (begadang) terhadap tekanan darah?",opts:["Menurunkan detak jantung secara drastis","Sistem saraf simpatis overaktif dan mekanisme 'dipping' malam hari terganggu","Membuat aliran darah lebih lancar ke otak","Menurunkan hormon stres (norepinefrin)"],ans:1,exp:"Kurang tidur memicu sistem saraf simpatis berlebih dan merusak mekanisme penurun tekanan darah alami di malam hari (dipping)."},
-  {q:"Stres mental kronis (karena tugas, FOMO, dll) dapat meningkatkan risiko hipertensi hingga...",opts:["Tidak berpengaruh sama sekali","1,5 kali lipat","2,4 kali lipat","5 kali lipat"],ans:2,exp:"Stres psikososial kronis meningkatkan risiko hipertensi hingga 2,40 kali lipat akibat aktivasi sumbu HPA secara berlebihan."},
-  {q:"Komplikasi mematikan dari hipertensi pada organ otak dapat berupa...",opts:["Demensia vaskular dan Stroke","Gagal ginjal kronis","Retinopati hipertensif","Aneurisma"],ans:0,exp:"Pada otak, tekanan darah tinggi terus-menerus bisa merusak pembuluh darah kecil yang memicu stroke dan demensia vaskular."},
-  {q:"Apa yang terjadi jika pembuluh darah terus-menerus menerima tekanan darah tinggi?",opts:["Pembuluh darah beradaptasi menjadi lebih kuat","Memicu aterosklerosis dan merusak organ secara perlahan","Aliran darah semakin lancar membawa oksigen","Membentuk sel pembuluh darah baru yang kebal"],ans:1,exp:"Tekanan tinggi yang konsisten melukai lapisan dalam arteri, memicu penumpukan plak (aterosklerosis) dan kerusakan organ permanen."},
-  {q:"Berdasarkan data nasional terbaru, berapa persentase penderita hipertensi di Indonesia yang aktif berobat?",opts:["Hanya sekitar 10%","Hanya 22,5%","Sekitar 50%","Lebih dari 80%"],ans:1,exp:"Data statistik menunjukkan fakta memprihatinkan: hanya 26,9% penderita menyadari kondisinya, dan hanya 22,5% yang berobat aktif."}
+  {q:"Berapa ambang batas tekanan darah yang dikategorikan sebagai hipertensi?",opts:["≥ 120/80 mmHg","≥ 130/85 mmHg","≥ 140/90 mmHg","≥ 150/100 mmHg"],ans:2,exp:"Nilai ≥ 140/90 mmHg adalah standar WHO/JNC untuk diagnosis hipertensi."},
+  {q:"Mengapa hipertensi dijuluki 'the silent killer'?",opts:["Sebagian besar penderita tidak merasakan gejala apapun","Gejalanya hanya muncul saat malam hari","Penyakit ini tidak bisa dideteksi medis","Bisa sembuh sendiri tanpa diobati"],ans:0,exp:"Sebagian besar penderita tidak merasakan gejala apapun, seperti Raffin yang tidak sadar kondisinya hingga kolaps."},
+  {q:"Menurut rekomendasi WHO, berapa batas maksimal konsumsi garam per hari?",opts:["10 gram","5 gram (±1 sendok teh)","15 gram","Tidak ada batasan"],ans:1,exp:"Melebihi batas ini meningkatkan retensi cairan dan volume darah."},
+  {q:"Kebiasaan begadang memicu hipertensi melalui mekanisme apa?",opts:["Membuat aliran darah lebih lancar","Menurunkan detak jantung","Aktivasi saraf simpatis berlebihan dan gangguan mekanisme dipping malam hari","Meningkatkan penyerapan oksigen ke otak"],ans:2,exp:"Penurunan tekanan darah alami di malam hari terganggu sehingga tekanan tetap tinggi."},
+  {q:"Gorengan ≥ 4 kali seminggu meningkatkan risiko hipertensi berapa kali lipat?",opts:["1,21 kali lipat","2,4 kali lipat","3 kali lipat","Tidak meningkatkan risiko"],ans:0,exp:"Akibat asam lemak trans yang merusak elastisitas dinding pembuluh darah."},
+  {q:"Stres kronis meningkatkan risiko hipertensi melalui jalur biologis apa?",opts:["Aktivasi sumbu HPA berlebihan","Penurunan kadar kolesterol","Peningkatan sel darah merah","Melemahkan otot jantung"],ans:0,exp:"Sumbu HPA → kortisol dan katekolamin meningkat → vasokonstriksi → tekanan darah naik."},
+  {q:"Manakah yang BUKAN faktor risiko hipertensi yang bisa diubah?",opts:["Kurang tidur","Asupan garam","Riwayat keluarga","Tingkat stres"],ans:2,exp:"Genetik dan usia adalah faktor tetap yang tidak dapat dimodifikasi."},
+  {q:"Komplikasi hipertensi pada organ otak mencakup...",opts:["Gagal ginjal dan asma","Stroke dan demensia vaskular","Kebutaan dan katarak","Penyakit asam lambung"],ans:1,exp:"Tekanan tinggi merusak pembuluh darah kecil di otak secara bertahap."},
+  {q:"Berdasarkan data nasional, berapa persen penderita hipertensi di Indonesia yang aktif berobat?",opts:["50%","22,5%","80%","10%"],ans:1,exp:"Angka ini sangat rendah, menunjukkan rendahnya kesadaran pengobatan aktif."},
+  {q:"Langkah pencegahan hipertensi yang paling mudah dilakukan oleh Gen Z adalah…",opts:["Minum obat tiap hari","Menghindari segala macam makanan","Cek tekanan darah rutin, kurangi manis/garam, tidur cukup & olahraga","Tidur seharian penuh"],ans:2,exp:"Gabungan dari pesan penutup video dan panduan gaya hidup sehat berbasis bukti."}
 ];
 
 const EDU_MATERIALS = [
   {
-    icon: "ti-info-circle",
-    title: "Apa itu Hipertensi?",
-    sub: "Mengenal hipertensi, the silent killer, dan statistiknya",
+    icon: "ti-video",
+    title: "Kisah Tuan Muda Raffin",
+    sub: "Pelajaran dari narasi video tentang bahaya gaya hidup buruk",
     html: `
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-info-circle"></i> Definisi</div>
-      <p class="edu-section-text">Hipertensi adalah kondisi ketika tekanan darah seseorang secara konsisten berada di angka <strong>&ge; 140/90 mmHg</strong> (sistolik/diastolik).</p>
+      <div class="edu-section-label"><i class="ti ti-alert-triangle"></i> Faktor Pemicu (Dari Video)</div>
+      <p class="edu-section-text">Berdasarkan kisah Tuan Muda Raffin, berikut adalah kebiasaan yang memicu lonjakan tekanan darah:</p>
+      <ul style="margin:8px 0 0 18px;font-size:14px;color:var(--text-secondary);line-height:2">
+        <li><strong>Begadang</strong> — kurang tidur tingkatkan tekanan darah secara bertahap.</li>
+        <li><strong>Stres</strong> — emosi tak terkontrol memicu lonjakan tekanan.</li>
+        <li><strong>Kopi berlebihan</strong> — kafein merangsang sistem saraf.</li>
+        <li><strong>Makanan tinggi garam</strong> — sebabkan retensi cairan dan naikkan volume darah.</li>
+        <li><strong>Kurang gerak (sedentari)</strong> — aktivitas fisik rendah melemahkan jantung.</li>
+      </ul>
+    </div>
+    <div class="edu-section animate-slide">
+      <div class="edu-section-label"><i class="ti ti-activity"></i> Gejala & Risiko</div>
+      <p class="edu-section-text">Gejala yang dialami Raffin sebelum kolaps: <strong>sakit kepala berdenyut hebat, mudah lelah, dan jantung berdebar cepat</strong>. Jika dibiarkan, ini bisa memicu <strong>penyakit jantung</strong> dan <strong>stroke</strong>.</p>
+    </div>
+    <div class="edu-section animate-slide">
+      <div class="edu-section-label"><i class="ti ti-shield"></i> Pencegahan</div>
+      <p class="edu-section-text">Cek tekanan darah rutin, kurangi makanan instan & manis, tidur cukup, olahraga ringan teratur, dan jangan abaikan stres!</p>
+    </div>
+    `
+  },
+  {
+    icon: "ti-info-circle",
+    title: "Apa itu Hipertensi?",
+    sub: "Mengenal definisi medis dan fakta di Indonesia",
+    html: `
+    <div class="edu-section animate-slide">
+      <div class="edu-section-label"><i class="ti ti-stethoscope"></i> Definisi Medis</div>
+      <p class="edu-section-text">Hipertensi adalah kondisi ketika tekanan darah secara konsisten berada di angka <strong>&ge; 140/90 mmHg</strong> (sistolik/diastolik).</p>
       <div class="callout" style="margin-top:12px">
-        <p><strong>The Silent Killer!</strong> WHO menyebut hipertensi sebagai pembunuh senyap karena sebagian besar penderita tidak merasakan gejala apapun hingga komplikasi serius terjadi.</p>
+        <p><strong>The Silent Killer!</strong> WHO menyebutnya pembunuh senyap karena penderita sering tidak merasakan gejala apapun hingga komplikasi serius terjadi.</p>
       </div>
     </div>
     <div class="edu-section animate-slide">
       <div class="edu-section-label"><i class="ti ti-chart-bar"></i> Fakta di Indonesia</div>
-      <p class="edu-section-text">Berdasarkan data kesehatan nasional:</p>
       <ul style="margin:8px 0 0 18px;font-size:14px;color:var(--text-secondary);line-height:2">
-        <li>Prevalensi meningkat dari <strong>27,9% (2013) &rarr; 31,6% (2023)</strong>.</li>
-        <li>Hanya sekitar <strong>26,9%</strong> penderita yang menyadari kondisinya.</li>
-        <li>Hanya <strong>22,5%</strong> penderita yang menjalani pengobatan aktif.</li>
+        <li>Prevalensi meningkat tajam menjadi <strong>31,6% (2023)</strong>.</li>
+        <li>Mirisnya, hanya <strong>26,9%</strong> yang menyadari kondisinya.</li>
+        <li>Hanya <strong>22,5%</strong> yang menjalani pengobatan aktif.</li>
       </ul>
     </div>
     `
   },
   {
-    icon: "ti-alert-triangle",
+    icon: "ti-alert-circle",
     title: "Mengapa Gen Z Berisiko?",
-    sub: "Faktor risiko asupan garam, gorengan, dan begadang",
+    sub: "Asupan, pola tidur, dan stres di kalangan muda",
     html: `
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-tools-kitchen-2"></i> 1. Asupan Garam Berlebih</div>
-      <p class="edu-section-text">Asupan natrium yang tinggi meningkatkan retensi cairan, meningkatkan volume darah, dan mempersempit pembuluh darah. WHO merekomendasikan batas konsumsi garam maksimal <strong>5 gram (sekitar 1 sendok teh) per hari</strong>.</p>
+      <div class="edu-section-label"><i class="ti ti-salt"></i> Asupan Garam & Gorengan</div>
+      <p class="edu-section-text">WHO membatasi konsumsi natrium maksimal <strong>5 gram (&plusmn;1 sendok teh) per hari</strong>. Konsumsi gorengan &ge; 4 kali seminggu meningkatkan risiko <strong>1,21x lipat</strong> akibat asam lemak trans yang merusak elastisitas pembuluh darah.</p>
     </div>
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-flame"></i> 2. Gorengan Berlebih</div>
-      <p class="edu-section-text">Mengonsumsi gorengan &ge; 4 kali per minggu meningkatkan risiko hipertensi sebesar <strong>1,21 kali lipat</strong> dibanding yang makan &lt; 2 kali seminggu. Proses penggorengan berulang memicu terbentuknya asam lemak trans yang merusak elastisitas pembuluh darah.</p>
+      <div class="edu-section-label"><i class="ti ti-moon"></i> Begadang</div>
+      <p class="edu-section-text">Kurang tidur mengaktifkan sistem saraf simpatis secara berlebihan dan mengganggu mekanisme <em>dipping</em> (penurunan tekanan darah alami di malam hari).</p>
     </div>
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-moon"></i> 3. Begadang & Kurang Tidur</div>
-      <p class="edu-section-text">Kurang tidur mengaktifkan sistem saraf simpatis secara berlebihan, meningkatkan hormon stres, dan mengganggu penurunan tekanan darah alami (dipping) di malam hari. Tidur kurang dari 7-9 jam meningkatkan risiko hipertensi secara signifikan.</p>
+      <div class="edu-section-label"><i class="ti ti-brain"></i> Stres Kronis (FOMO)</div>
+      <p class="edu-section-text">Tekanan akademik dan FOMO mengaktifkan sumbu HPA secara berlebihan, yang melipatgandakan risiko hipertensi hingga <strong>2,40x</strong>.</p>
     </div>
     `
   },
   {
-    icon: "ti-brain",
-    title: "Stres & Faktor Risiko Lain",
-    sub: "Stres psikososial kronis dan faktor genetik",
-    html: `
-    <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-mood-sad"></i> 4. Stres Kronis</div>
-      <p class="edu-section-text">Stres akibat tugas kuliah, FOMO (Fear of Missing Out), atau media sosial mengaktifkan sumbu HPA (hypothalamic-pituitary-adrenal) secara berlebihan. Stres mental berkepanjangan meningkatkan risiko hipertensi hingga <strong>2,40 kali lipat</strong>!</p>
-    </div>
-    <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-user-x"></i> Faktor Lain yang Bisa Diubah</div>
-      <p class="edu-section-text">Gaya hidup sedentari (kurang gerak), merokok, konsumsi alkohol, serta obesitas turut memperburuk kondisi elastisitas pembuluh darah.</p>
-    </div>
-    <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-dna"></i> Faktor yang Tidak Bisa Diubah</div>
-      <p class="edu-section-text">Riwayat keluarga dengan hipertensi dan penambahan usia merupakan faktor bawaan genetik yang meningkatkan kerentanan tubuh terhadap tekanan darah tinggi.</p>
-    </div>
-    `
-  },
-  {
-    icon: "ti-activity",
+    icon: "ti-heart-broken",
     title: "Dampak Jangka Panjang",
-    sub: "Kerusakan organ vital akibat hipertensi tak terkontrol",
+    sub: "Risiko yang tidak bisa diubah dan kerusakan organ vital",
     html: `
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-alert-circle"></i> Kerusakan Organ</div>
-      <p class="edu-section-text">Tekanan darah tinggi secara terus menerus akan melukai lapisan dalam pembuluh darah, memicu penumpukan plak (aterosklerosis) dan merusak organ-organ vital:</p>
-      <table class="data-table">
-        <thead>
-          <tr><th>Organ</th><th>Dampak Kerusakan</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="danger" style="font-weight:600">🫀 Jantung</td><td>Serangan jantung, gagal jantung, pembesaran ventrikel kiri</td></tr>
-          <tr><td class="danger" style="font-weight:600">🧠 Otak</td><td>Stroke, demensia vaskular, penurunan kognitif</td></tr>
-          <tr><td class="danger" style="font-weight:600">🫘 Ginjal</td><td>Nefropati hipertensif, gagal ginjal kronis</td></tr>
-          <tr><td class="danger" style="font-weight:600">👁️ Mata</td><td>Retinopati hipertensif, kebutaan/gangguan penglihatan</td></tr>
-        </tbody>
-      </table>
-      <p class="table-caption">Sumber: American Heart Association & WHO Guidelines</p>
+      <div class="edu-section-label"><i class="ti ti-dna"></i> Faktor yang Tak Bisa Diubah</div>
+      <p class="edu-section-text">Terdapat risiko bawaan yakni <strong>riwayat keluarga</strong> dengan hipertensi serta <strong>penambahan usia</strong> yang memicu kekakuan pembuluh darah secara alami.</p>
     </div>
-    `
-  },
-  {
-    icon: "ti-stethoscope",
-    title: "Pencegahan & Solusi",
-    sub: "Bagaimana mengontrol tekanan darah dan hidup sehat",
-    html: `
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-shield-check"></i> Langkah Pencegahan</div>
+      <div class="edu-section-label"><i class="ti ti-activity-heartbeat"></i> Kerusakan Organ (Komplikasi)</div>
+      <p class="edu-section-text">Tekanan darah tinggi terus-menerus memicu penumpukan plak (aterosklerosis) dan merusak organ vital:</p>
       <ul style="margin:8px 0 0 18px;font-size:14px;color:var(--text-secondary);line-height:2">
-        <li>Batasi konsumsi garam <strong>&lt; 5 gram per hari</strong></li>
-        <li>Tidur teratur <strong>7-9 jam per malam</strong></li>
-        <li>Olahraga aerobik minimal 30 menit, 5x seminggu</li>
-        <li>Kelola stres dengan baik dan batasi gorengan</li>
-        <li>Cek tekanan darah rutin secara berkala</li>
+        <li><strong>Jantung:</strong> Serangan jantung, gagal jantung.</li>
+        <li><strong>Otak:</strong> Stroke, demensia vaskular.</li>
+        <li><strong>Ginjal:</strong> Gagal ginjal kronis.</li>
+        <li><strong>Mata:</strong> Gangguan penglihatan hingga kebutaan.</li>
       </ul>
     </div>
+    `
+  },
+  {
+    icon: "ti-pill",
+    title: "Solusi Pengobatan",
+    sub: "Langkah bijak menangani hipertensi",
+    html: `
     <div class="edu-section animate-slide">
-      <div class="edu-section-label"><i class="ti ti-pill"></i> Solusi Pengobatan</div>
-      <p class="edu-section-text">Jika sudah terdiagnosis hipertensi, dasar penanganannya adalah perubahan gaya hidup dikombinasikan dengan obat antihipertensi dari dokter. Kepatuhan minum obat dan kontrol rutin sangat vital agar terhindar dari komplikasi mematikan.</p>
+      <div class="edu-section-label"><i class="ti ti-check"></i> Dasar Penanganan</div>
+      <p class="edu-section-text">Hipertensi bukanlah akhir dunia jika ditangani dengan tepat. Dasar pengobatannya adalah <strong>perubahan gaya hidup sehat</strong> disertai <strong>obat antihipertensi dari dokter</strong>.</p>
+    </div>
+    <div class="edu-section animate-slide">
+      <div class="edu-section-label"><i class="ti ti-alarm"></i> Kepatuhan Minum Obat</div>
+      <p class="edu-section-text">Bagi yang sudah terdiagnosis, kepatuhan minum obat secara rutin sangat menentukan keberhasilan pengobatan jangka panjang dan mencegah komplikasi mematikan. Jangan hentikan obat tanpa saran dokter!</p>
     </div>
     `
   }
+];
+
+const SOURCES = [
+  { cluster: "Definisi & Klasifikasi", claim: "TD ≥140/90, silent killer", ref: "JNC 7 (Chobanian et al., 2003); WHO (2023)" },
+  { cluster: "Data Epidemiologi Indonesia", claim: "Prevalensi 27,9%→31,6%; 22,5% berobat", ref: "Riskesdas 2013; SKI 2023; Wahidin et al. (2025)" },
+  { cluster: "Garam", claim: "≤5g/hari", ref: "WHO Sodium Guideline (2012); WHO Fact Sheet (2023)" },
+  { cluster: "Gorengan", claim: "1,21× risiko jika ≥4×/minggu", ref: "Guallar-Castillón et al. (2012); Gadiraju et al. (2015)" },
+  { cluster: "Tidur/Begadang", claim: "Simpatis ↑, nocturnal dipping ↓", ref: "Dominguez-Rodriguez et al. (2022); Calvin et al. (2014)" },
+  { cluster: "Stres/HPA", claim: "Risiko hipertensi 1,6–2,7×", ref: "Sparrenberger et al. (2009); Kulkarni et al. (2022)" },
+  { cluster: "Kafein/Kopi", claim: "Simpatis ↑, TD akut ↑", ref: "Corti et al. (2002); Palatini & Julius (2019)" },
+  { cluster: "Sedentari", claim: "Faktor risiko CVD & HTN", ref: "Liang et al. (2022); Biswas et al. (2015)" },
+  { cluster: "Aterosklerosis & Komplikasi", claim: "Target organ damage", ref: "Oparil et al. (2018); StatPearls (NIH)" },
+  { cluster: "Kepatuhan Obat", claim: "Kepatuhan ↑ → CV events ↓", ref: "Corrao et al. (2011); Peng et al. (2025)" }
 ];
 
 function MainApp() {
@@ -148,6 +159,7 @@ function MainApp() {
   const [name, setName] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSources, setShowSources] = useState(false);
   const [userId, setUserId] = useState(null);
   const [zCount, setZCount] = useState(0);
 
@@ -501,6 +513,9 @@ function MainApp() {
           Hipertensi Mengintai Gen <em>Z</em>.
         </span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: '13px' }} onClick={() => setShowSources(true)}>
+            <i className="ti ti-book"></i> Referensi
+          </button>
           {name && step !== 'landing' && (
             <div className="topbar-user" id="topbar-user">
               <span className="avatar" id="topbar-avatar">{name.charAt(0).toUpperCase()}</span>
@@ -1219,6 +1234,28 @@ function AdminDashboard() {
           </div>
         </div>
       </div>
+
+      {/* SOURCES MODAL */}
+      {showSources && (
+        <div className="modal-overlay" onClick={() => setShowSources(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div className="modal-title"><i className="ti ti-book"></i> Daftar Sumber & Sitasi</div>
+              <button className="modal-close" onClick={() => setShowSources(false)}><i className="ti ti-x"></i></button>
+            </div>
+            <div className="modal-body">
+              <p className="body-sm" style={{marginBottom: '20px'}}>Berikut adalah referensi literatur medis dan pedoman klinis yang mendukung klaim faktual dalam edukasi #HT_GEN_Z.</p>
+              {SOURCES.map((src, i) => (
+                <div key={i} className="source-item">
+                  <div className="source-cluster">{src.cluster}</div>
+                  <div className="source-claim">{src.claim}</div>
+                  <div className="source-ref"><i className="ti ti-quote"></i> {src.ref}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
