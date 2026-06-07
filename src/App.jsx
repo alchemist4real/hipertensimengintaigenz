@@ -141,16 +141,127 @@ const EDU_MATERIALS = [
 ];
 
 const SOURCES = [
-  { cluster: "Definisi & Klasifikasi", claim: "TD ≥140/90, silent killer", ref: "JNC 7 (Chobanian et al., 2003); WHO (2023)" },
-  { cluster: "Data Epidemiologi Indonesia", claim: "Prevalensi 27,9%→31,6%; 22,5% berobat", ref: "Riskesdas 2013; SKI 2023; Wahidin et al. (2025)" },
-  { cluster: "Garam", claim: "≤5g/hari", ref: "WHO Sodium Guideline (2012); WHO Fact Sheet (2023)" },
-  { cluster: "Gorengan", claim: "1,21× risiko jika ≥4×/minggu", ref: "Guallar-Castillón et al. (2012); Gadiraju et al. (2015)" },
-  { cluster: "Tidur/Begadang", claim: "Simpatis ↑, nocturnal dipping ↓", ref: "Dominguez-Rodriguez et al. (2022); Calvin et al. (2014)" },
-  { cluster: "Stres/HPA", claim: "Risiko hipertensi 1,6–2,7×", ref: "Sparrenberger et al. (2009); Kulkarni et al. (2022)" },
-  { cluster: "Kafein/Kopi", claim: "Simpatis ↑, TD akut ↑", ref: "Corti et al. (2002); Palatini & Julius (2019)" },
-  { cluster: "Sedentari", claim: "Faktor risiko CVD & HTN", ref: "Liang et al. (2022); Biswas et al. (2015)" },
-  { cluster: "Aterosklerosis & Komplikasi", claim: "Target organ damage", ref: "Oparil et al. (2018); StatPearls (NIH)" },
-  { cluster: "Kepatuhan Obat", claim: "Kepatuhan ↑ → CV events ↓", ref: "Corrao et al. (2011); Peng et al. (2025)" }
+  {
+    cluster: "1. Definisi Hipertensi",
+    claim: "Hipertensi adalah kondisi ketika tekanan darah secara konsisten berada di angka ≥ 140/90 mmHg (sistolik/diastolik).",
+    refs: [
+      "Chobanian, A. V., et al. (2003). The Seventh Report of the Joint National Committee on Prevention, Detection, Evaluation, and Treatment of High Blood Pressure: The JNC 7 Report. JAMA, 289(19), 2560–2572.",
+      "Abdalla, M., & Beheiry, A. (2023). Essential Hypertension. StatPearls [Internet]."
+    ]
+  },
+  {
+    cluster: "2. The Silent Killer",
+    claim: "WHO menyebut hipertensi sebagai 'the silent killer' karena sebagian besar penderita tidak merasakan gejala sampai terjadi komplikasi serius.",
+    refs: [
+      "World Health Organization. (2023). Hypertension — Key facts. WHO Fact Sheets.",
+      "Badan Kebijakan Pembangunan Kesehatan Kemenkes RI. (2024). Bahaya Hipertensi Mengintai Anak Muda Indonesia."
+    ]
+  },
+  {
+    cluster: "3. Prevalensi di Indonesia",
+    claim: "Prevalensi meningkat dari 27,9% (2013) menjadi 31,6% (2023); hanya 26,9% yang menyadari; hanya 22,5% yang berobat aktif.",
+    refs: [
+      "Kementerian Kesehatan RI. (2013). Riset Kesehatan Dasar (Riskesdas) 2013.",
+      "Kementerian Kesehatan RI. (2024). Survei Kesehatan Indonesia (SKI) 2023.",
+      "Wahidin, M., et al. (2025). Overview of Hypertension Prevalence and Its Main Risk Factors in Indonesia. Amerta Nutrition, 9(3), 438–442."
+    ]
+  },
+  {
+    cluster: "4. Batas Konsumsi Garam",
+    claim: "WHO membatasi konsumsi natrium maksimal 5 gram (±1 sendok teh) per hari.",
+    refs: [
+      "World Health Organization. (2012). Guideline: Sodium Intake for Adults and Children.",
+      "Farquhar, W. B., et al. (2015). Dietary Sodium and Health: More Than Just Blood Pressure. Journal of the American College of Cardiology, 65(10), 1042–1050."
+    ]
+  },
+  {
+    cluster: "5. Gorengan & Lemak Trans",
+    claim: "Konsumsi gorengan ≥ 4 kali seminggu meningkatkan risiko hipertensi sebesar 1,21 kali lipat; asam lemak trans merusak elastisitas pembuluh darah.",
+    refs: [
+      "Guallar-Castillón, P., et al. (2012). Reported fried food consumption and the incidence of hypertension in a Mediterranean cohort. British Journal of Nutrition, 112(6), 984–991.",
+      "Gadiraju, T. V., et al. (2015). Fried Food Consumption and Cardiovascular Health: A Review of Current Evidence. Nutrients, 7(10), 8424–8430."
+    ]
+  },
+  {
+    cluster: "6. Begadang & Kualitas Tidur",
+    claim: "Kurang tidur mengaktifkan sistem saraf simpatis secara berlebihan dan mengganggu mekanisme dipping (penurunan TD alami di malam hari).",
+    refs: [
+      "Lusardi, P., et al. (1999). Effects of insufficient sleep on blood pressure in hypertensive patients. American Journal of Hypertension, 12(1), 63–68.",
+      "Dominguez-Rodriguez, A., & de la Torre-Hernandez, J. M. (2022). The Association Between Sleep Deprivation and Arterial Pressure Variations. Sleep Medicine, 90, 63–73."
+    ]
+  },
+  {
+    cluster: "7. Stres Kronis & Aktivasi HPA",
+    claim: "Stres kronis (seperti tuntutan akademik atau FOMO) mengaktifkan sumbu HPA berlebihan dan meningkatkan risiko hipertensi.",
+    refs: [
+      "Sparrenberger, F., et al. (2009). Does Psychosocial Stress Cause Hypertension? A Systematic Review. Journal of Human Hypertension, 23(1), 12–19.",
+      "Joe, M., et al. (2023). Relationship Between Psychological Distress, Health Behaviours and Future Reports of Hypertension. BMJ Open, 13(7), e068234."
+    ]
+  },
+  {
+    cluster: "8. Kafein / Kopi",
+    claim: "Kafein merangsang sistem saraf simpatis dan meningkatkan tekanan darah secara akut.",
+    refs: [
+      "Corti, R., et al. (2002). Coffee Acutely Increases Sympathetic Nerve Activity and Blood Pressure. Circulation, 106(23), 2935–2940.",
+      "Palatini, P., & Julius, S. (2019). Caffeine and Blood Pressure: A Critical Review Perspective. Nutrition Research Reviews, 32(2), 236–248."
+    ]
+  },
+  {
+    cluster: "9. Gaya Hidup Sedentari",
+    claim: "Aktivitas fisik rendah (sedentari) memperlambat sirkulasi dan menjadi faktor risiko independen hipertensi.",
+    refs: [
+      "Liang, Z., et al. (2022). Association Between Sedentary Behavior, Physical Activity, and Cardiovascular Disease-Related Outcomes. Frontiers in Public Health, 10, 1018460.",
+      "Biswas, A., et al. (2015). Sedentary Time and Its Association with Risk for Disease Incidence. Annals of Internal Medicine, 162(2), 123–132."
+    ]
+  },
+  {
+    cluster: "10. Aterosklerosis & Komplikasi",
+    claim: "Tekanan darah tinggi terus-menerus memicu penumpukan plak (aterosklerosis) dan merusak organ vital (target organ damage).",
+    refs: [
+      "Oparil, S., et al. (2018). Hypertension. Nature Reviews Disease Primers, 4, 18014.",
+      "Touyz, R. M., & Schiffrin, E. L. (2017). The Role of Endothelin in Hypertension. Current Hypertension Reports, 19(1), 4."
+    ]
+  },
+  {
+    cluster: "11. Komplikasi: Jantung & Otak",
+    claim: "Hipertensi yang tidak terkontrol menyebabkan serangan jantung, gagal jantung (LVH), stroke, dan demensia vaskular.",
+    refs: [
+      "Shams, P., Tackling, G., & Borhade, M. B. (2024). Hypertensive Heart Disease. StatPearls.",
+      "Gorelick, P. B., et al. (2011). Vascular Contributions to Cognitive Impairment and Dementia. Stroke, 42(9), 2672–2713."
+    ]
+  },
+  {
+    cluster: "12. Komplikasi: Ginjal & Mata",
+    claim: "Berdampak merusak pada sirkulasi mikro, menyebabkan gagal ginjal kronis (nefropati) dan kebutaan (retinopati hipertensif).",
+    refs: [
+      "Weiner, D. E., & Tighiouart, H. (2020). Hypertension and Kidney Disease: The Double-Edged Sword. Clinical Journal of the American Society of Nephrology.",
+      "Modi, P., & Arsiwalla, T. (2022). Hypertensive Retinopathy. StatPearls."
+    ]
+  },
+  {
+    cluster: "13. Kepatuhan Obat (Adherence)",
+    claim: "Kepatuhan minum obat sangat menentukan keberhasilan pengobatan dan menurunkan risiko morbiditas kardiovaskular secara drastis.",
+    refs: [
+      "Peng, X., et al. (2025). The Link Between Adherence to Antihypertensive Medications and Mortality Rates. BMC Cardiovascular Disorders, 25, 145.",
+      "Corrao, G., et al. (2011). Better Compliance to Antihypertensive Medications Reduces Cardiovascular Risk. Journal of Hypertension."
+    ]
+  },
+  {
+    cluster: "14. Hipertensi pada Anak Muda / Gen Z",
+    claim: "Bukan hanya penyakit orang tua; SKI 2023 mencatat prevalensi hipertensi mencapai 10,7% pada rentang usia 18–24 tahun di Indonesia.",
+    refs: [
+      "Badan Kebijakan Pembangunan Kesehatan Kemenkes RI. (2024, Desember 2). Bahaya Hipertensi Mengintai Anak Muda Indonesia.",
+      "Kementerian Kesehatan Republik Indonesia. (2024). Survei Kesehatan Indonesia (SKI) 2023."
+    ]
+  },
+  {
+    cluster: "15. Olahraga Aerobik",
+    claim: "Olahraga aerobik secara teratur dan moderat efektif membantu mengontrol serta menurunkan tekanan darah.",
+    refs: [
+      "Ramirez-Jimenez, M., et al. (2023). Effect of Leisure-Time Physical Activity on Blood Pressure in People with Hypertension. Scientific Reports, 13, 10639.",
+      "Pescatello, L. S., et al. (2019). Physical Activity to Prevent and Treat Hypertension: A Systematic Review. Medicine & Science in Sports & Exercise."
+    ]
+  }
 ];
 
 function MainApp() {
@@ -1309,9 +1420,14 @@ function SourcesPage() {
           {SOURCES.map((src, i) => (
             <div key={i} className="source-item" style={{ marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px dashed var(--border)' }}>
               <div className="source-cluster" style={{ fontSize: '13px', fontWeight: '700', color: 'var(--red-600)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>{src.cluster}</div>
-              <div className="source-claim" style={{ fontSize: '14.5px', fontWeight: '500', color: 'var(--text-primary)', lineHeight: 1.5, marginBottom: '6px' }}>{src.claim}</div>
-              <div className="source-ref" style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, background: 'var(--bg2)', padding: '8px 12px', borderRadius: 'var(--radius-sm)', borderLeft: '2px solid var(--red-300)' }}>
-                <i className="ti ti-quote"></i> {src.ref}
+              <div className="source-claim" style={{ fontSize: '14.5px', fontWeight: '500', color: 'var(--text-primary)', lineHeight: 1.5, marginBottom: '8px' }}>{src.claim}</div>
+              <div className="source-refs" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {src.refs.map((r, ri) => (
+                  <div key={ri} className="source-ref" style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, background: 'var(--surface)', padding: '8px 12px', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--red-300)', border: '1px solid var(--border)', borderLeftWidth: '3px' }}>
+                    <i className="ti ti-quote" style={{ marginRight: '6px', color: 'var(--slate-400)' }}></i>
+                    {r}
+                  </div>
+                ))}
               </div>
             </div>
           ))}
