@@ -270,7 +270,6 @@ function MainApp() {
   const [name, setName] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [showSources, setShowSources] = useState(false);
   const [userId, setUserId] = useState(null);
   const [zCount, setZCount] = useState(0);
 
@@ -1372,27 +1371,6 @@ function AdminDashboard() {
         </div>
       </div>
 
-      {/* SOURCES MODAL */}
-      {showSources && (
-        <div className="modal-overlay" onClick={() => setShowSources(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <div className="modal-title"><i className="ti ti-book"></i> Daftar Sumber & Sitasi</div>
-              <button className="modal-close" onClick={() => setShowSources(false)}><i className="ti ti-x"></i></button>
-            </div>
-            <div className="modal-body">
-              <p className="body-sm" style={{marginBottom: '20px'}}>Berikut adalah referensi literatur medis dan pedoman klinis yang mendukung klaim faktual dalam edukasi #HT_GEN_Z.</p>
-              {SOURCES.map((src, i) => (
-                <div key={i} className="source-item">
-                  <div className="source-cluster">{src.cluster}</div>
-                  <div className="source-claim">{src.claim}</div>
-                  <div className="source-ref"><i className="ti ti-quote"></i> {src.ref}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
