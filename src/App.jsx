@@ -508,19 +508,11 @@ function MainApp() {
   return (
     <div className="min-h-screen">
       {/* TOPBAR */}
-      <nav className="topbar" id="topbar" style={{ position: 'sticky', top: 0, zIndex: 9999 }}>
+      <nav className="topbar" id="topbar" style={{ position: 'sticky', top: 0, zIndex: 999 }}>
         <span className="topbar-brand">
           Hipertensi Mengintai Gen <em>Z</em>.
         </span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', zIndex: 10000 }}>
-          <button 
-            type="button"
-            className="btn btn-ghost" 
-            style={{ padding: '6px 12px', fontSize: '13px', cursor: 'pointer', pointerEvents: 'auto', position: 'relative', zIndex: 10000 }} 
-            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowSources(true); }}
-          >
-            <i className="ti ti-book" style={{ pointerEvents: 'none' }}></i> Referensi
-          </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {name && step !== 'landing' && (
             <div className="topbar-user" id="topbar-user">
               <span className="avatar" id="topbar-avatar">{name.charAt(0).toUpperCase()}</span>
@@ -529,6 +521,35 @@ function MainApp() {
           )}
         </div>
       </nav>
+
+      {/* FLOATING SOURCE BUTTON */}
+      <button
+        onClick={() => setShowSources(true)}
+        style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          zIndex: 9999,
+          background: 'var(--red-600)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '50px',
+          padding: '12px 20px',
+          fontSize: '14px',
+          fontWeight: 'bold',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          boxShadow: '0 4px 12px rgba(220, 38, 38, 0.4)',
+          cursor: 'pointer',
+          pointerEvents: 'auto',
+          transition: 'transform 0.2s'
+        }}
+        onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+        onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+      >
+        <i className="ti ti-book"></i> Referensi Literatur
+      </button>
 
       {/* PAGE: LANDING */}
       {step === 'landing' && (
